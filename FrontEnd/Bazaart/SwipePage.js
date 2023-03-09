@@ -1,4 +1,5 @@
 import TinderCard from 'react-tinder-card'
+import React, { useState } from 'react'
 
 
 const onSwipe = (direction) => {
@@ -12,3 +13,4 @@ const onCardLeftScreen = (myIdentifier) => {
 return (
     <TinderCard onSwipe={onSwipe} onCardLeftScreen={() => onCardLeftScreen('fooBar')} preventSwipe={['right', 'left']}>Hello, World!</TinderCard>
 )
+

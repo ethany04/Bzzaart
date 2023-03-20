@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { ImageBackground, Text, View } from 'react-native'
 import TinderCard from 'react-tinder-card'
-import React, { useState } from 'react'
 
 const styles = {
   container: {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ImageBackground, Text, View, SafeAreaView } from 'react-native'
+import { ImageBackground, Text, View, SafeAreaView, Button } from 'react-native'
 import TinderCard from 'react-tinder-card'
 import FlipCard from 'react-native-flip-card'
 
@@ -15,18 +15,18 @@ const styles = {
   header: {
     color: '#000',
     fontSize: 30,
-    marginBottom: 20,
+    marginBottom: 30,
   },
   cardContainer: {
     width: 350,
-    height: 620,
+    height: 630,
   },
   card: {
     position: 'absolute',
-    backgroundColor: '#fff',
+    backgroundColor: 'black',
     width: '100%',
-    maxWidth: 260,
-    height: 300,
+    maxWidth: 350,
+    height: 620,
     borderRadius: 20,
     resizeMode: 'cover',
   },
@@ -95,30 +95,27 @@ function Simple() {
 
   return (
     <SafeAreaView style={styles.safeView}>
-        <Text style={styles.header}>Find an Artist!</Text>
+        <Text style={styles.header} onPress>Find an Artist!</Text>
         <View style={styles.cardContainer}>
             {characters.map((character) =>
-                <FlipCard 
-                    style={styles.flipCard}
-                    friction={6}
-                    perspective={1000}
-                    flipHorizontal={true}
-                    flipVertical={false}
-                    flip={false}
-                    clickable={true}
-                    onFlipEnd={(isFlipEnd)=>{console.log('isFlipEnd', isFlipEnd)}}
-                    >
-                    {<TinderCard key={character.name} onSwipe={(dir) => swiped(dir, character.name)} preventSwipe={['down']}>
-                        <View style={styles.card}>
-                        <ImageBackground style={styles.cardImage} source={character.img}>
-                            <Text style={styles.cardTitle}>{character.name}</Text>
-                        </ImageBackground>
-                        </View>
-                    </TinderCard>}
-                    
-                    {<Text>Hello world</Text>}
-                    
+              <TinderCard key={character.name} onSwipe={(dir) => swiped(dir, character.name)} preventSwipe={['down']}>
+                <FlipCard
+                  style={styles.card}
+                  friction={6}
+                  flipHorizontal={true}
+                  flipVertical={false}
+                  flip={false}
+                  clickable={true}
+                  onFlipEnd={(isFlipEnd)=>{console.log('isFlipEnd', isFlipEnd)}}
+                >
+                  <View style={styles.card}>
+                    <ImageBackground style={styles.cardImage} source={character.img}>
+                      <Text style={styles.cardTitle}>{character.name}</Text>
+                    </ImageBackground>
+                  </View>
+                  
                 </FlipCard>
+              </TinderCard>
             )}
         </View>
     </SafeAreaView>

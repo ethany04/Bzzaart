@@ -1,15 +1,14 @@
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native'
 import SwipePage from'./SwipePage'
-import FlipCardTest from './FlipCardTest'
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <View style={styles.row}>
+    <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.row}>
         <SwipePage/>
-      </View>
-    </View>
+      </SafeAreaView>
+    </SafeAreaView>
   );
 }
 

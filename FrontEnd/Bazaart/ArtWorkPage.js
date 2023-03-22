@@ -5,10 +5,10 @@ import {
     View,
     ScrollView,
     SafeAreaView,
-    Button,
     StyleSheet,
-    Pressable
 } from 'react-native';
+
+import Button from "react-native-bootstrap-buttons";
 
 
 function artWorkPage() {
@@ -23,11 +23,16 @@ function artWorkPage() {
                     <Text style={styles.name}>Glow In The Dark</Text>
                     <Text style={styles.price}>$800</Text>
                     <Text style={styles.description}>Oil Painting by Daquinious Demarcus capturing night life and the life.</Text>
-                    <Button 
+                    {/* <Button 
                         color="red"
                         title="Add to cart"
                         onPress={() => console.log("Add to Cart")}
-                    />
+                    /> */}
+                    <Button 
+                        color="red"
+                        label="Add to Cart"
+                        buttonType="primary" rounded
+                        />
                 </View>
             </ScrollView>
         </SafeAreaView>
@@ -36,6 +41,11 @@ function artWorkPage() {
 
 
 const styles = StyleSheet.create({
+    button: {
+        backgroundColor: "orange",
+        padding: 20,
+        marginTop: 150
+    },
     image: {
         bottom: 0
     },

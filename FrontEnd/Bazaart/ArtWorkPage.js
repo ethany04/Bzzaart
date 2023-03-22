@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useContext} from 'react';
+import React from 'react';
 import {
     Text,
     Image,
@@ -6,7 +6,8 @@ import {
     ScrollView,
     SafeAreaView,
     Button,
-    StyleSheet
+    StyleSheet,
+    Pressable
 } from 'react-native';
 
 
@@ -32,6 +33,7 @@ function artWorkPage() {
         </SafeAreaView>
     );
 }
+
 
 const styles = StyleSheet.create({
     image: {

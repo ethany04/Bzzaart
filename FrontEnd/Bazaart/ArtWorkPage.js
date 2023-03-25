@@ -23,17 +23,13 @@ function artWorkPage() {
                     <Text style={styles.name}>Glow In The Dark</Text>
                     <Text style={styles.price}>$800</Text>
                     <Text style={styles.description}>Oil Painting by Daquinious Demarcus capturing night life and the life.</Text>
-                    {/* <Button 
-                        color="red"
-                        title="Add to cart"
-                        onPress={() => console.log("Add to Cart")}
-                    /> */}
                     <Button 
                         color="red"
                         label="Add to Cart"
                         buttonType="primary" rounded
                         />
                 </View>
+
             </ScrollView>
         </SafeAreaView>
     );
@@ -67,6 +63,18 @@ const styles = StyleSheet.create({
         fontWeight: '400',
         color: 'black',
         marginBottom: 16,
+    },
+    navContainer: {
+        position: 'absolute',
+        alignItems: 'center',
+        bottom: 20,
+    },
+    navBar: {
+        flexDirection: 'row',
+        backgroundColor: 'blue',
+        width: '90%',
+        justifyContent: 'space-evenly',
+        boarderRadius: 40
     }
 });
 

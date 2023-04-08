@@ -1,14 +1,19 @@
+import * as React from 'react';
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native'
-import SwipePage from'./SwipePage'
+import { StyleSheet, View } from 'react-native'
+import MainContainer from './navigation/MainContainer';
+
 
 export default function App() {
+
   return (
-    <SafeAreaView style={styles.container}>
-      <SafeAreaView style={styles.row}>
-        <SwipePage/>
-      </SafeAreaView>
-    </SafeAreaView>
+    // <View style={styles.container}>
+    //   <View style={styles.row}>
+    //     <MainContainer/>
+        
+    //   </View>
+    // </View>
+    <MainContainer/>
   );
 }
 
@@ -17,6 +22,7 @@ const styles = StyleSheet.create({
     minHeight: '100%',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: 'pink',
   },
   row: {
     flexDirection: 'row',
@@ -26,5 +32,16 @@ const styles = StyleSheet.create({
   },
   instructionText: {
     marginRight: 10,
-  }
+  },
+  bottom: {
+    backgroundColor: 'aquamarine',
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
+  fab: {
+    position: 'absolute',
+    right: 16,
+  },
 });

@@ -10,21 +10,21 @@ def artworks() -> List[Dict]:
         'user': 'root',
         'password': 'root',
         'host': 'db',
-        'port': '5000',
+        'port': '3306',
         'database': 'compensation'
     }
     connection = mysql.connector.connect(**config)
     cursor = connection.cursor()
-    cursor.execute('SELECT * FROM artworks_data')
-    results=[{artwork_id: art_url} for (artwork_id, art_url) in cursor]
+    cursor.execute('SELECT art_name, art_url FROM artworks_data')
+    results=[{"name": art_name, "img": art_url} for (art_name, art_url) in cursor]
     cursor.close()
     connection.close()
     
     return results
 
-@app.route('/')
+@app.route('/images')
 def index() -> str:
-    return json.dumps({'artworks': artworks()})
+    return json.dumps(artworks())
 
 
 if __name__ == '__main__':

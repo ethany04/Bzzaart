@@ -1,4 +1,4 @@
-art_id,genre,artist_id,price,art_url
-32432,Oil Painting,343,800,FrontEnd/Bazaart/assets/Daquinious_Demarcus_Oil_Painting.jpeg
-89432,Portrait,213,1000,FrontEnd/Bazaart/assets/Hanni_Pham_Portrait_Art.jpeg
-78567,Digital Art,612,450,FrontEnd/Bazaart/assets/Sam_Oh_Digital_Art.jpg
+artwork_id,art_name,genre,artist_id,price,art_url
+32432,painting 1,Oil Painting,343,800,Daquinious_Demarcus_Oil_Painting.jpeg
+89432,painting 2,Portrait,213,1000,Hanni_Pham_Portrait_Art.jpeg
+78567,painting 3,Digital Art,612,450,Sam_Oh_Digital_Art.jpg

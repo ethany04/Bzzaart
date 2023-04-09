@@ -40,14 +40,15 @@ function MainContainer() {
             return <Ionicons name={iconName} size={size} color={color} />;
           },
           headerShown: false,
+
+          tabBarShowLabel: false,
+          tabBarActiveTintColor: 'black',
+          tabBarInactiveTintColor: 'black',
+          tabBarBorderTopWidth: 2,
+          tabBarBorderColor: 'black',
+          tabBarStyle: { backgroundColor: 'rgba(255, 218, 227, 1)', paddingBottom: 25, height: 80 },
+          tabBarLabelPosition: 'above-icon',
         })}
-        tabBarOptions={{
-            showLabel: false,
-            activeTintColor: 'black',
-            inactiveTintColor: 'black',
-            style: { padding: 50, height: 10 },
-            tabStyle: { backgroundColor: 'rgba(255, 218, 227, 1)', paddingBottom: 25, height: 80 },
-        }}
         >
 
         <Tab.Screen name={swipeName} component={SwipeScreen} />

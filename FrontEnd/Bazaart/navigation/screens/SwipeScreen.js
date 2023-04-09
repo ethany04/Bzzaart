@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { ImageBackground, Text, View, Button, Modal, TouchableHighlight } from 'react-native'
+import { ImageBackground, Text, View, Button, Modal, TouchableOpacity } from 'react-native'
 import TinderCard from 'react-tinder-card'
 import { Avatar } from 'react-native-paper';
 
 const styles = {
   safeView: {
-    backgroundColor: 'rgba(255, 168, 77, 0.47)',
+    backgroundColor: 'rgba(255, 218, 227, 1)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -110,11 +110,9 @@ function Simple() {
               <TinderCard key={artwork.name} onSwipe={() => console.log(artwork.img)} preventSwipe={['down']}>
                   <View style={styles.card}>
                     <ImageBackground style={styles.cardImage} src={ `/Users/ethanyu/Documents/sp23 bt/sp23-compensation/FrontEnd/Bazaart/assets/${artwork.img}` }>
-                      <TouchableHighlight style={{ flex: 1 }} onPress={() => setModalVisible(true)}>
-                        <View style={styles.imageProp}>
-                          <Avatar.Image size={75} source={require('../../assets/tesna.png')} onPress={() => setModalVisible(true)} />
-                        </View>
-                      </TouchableHighlight>
+                      <TouchableOpacity style={{ flex: 1 }} onPress={() => setModalVisible(true)}>
+                        <Avatar.Image style={styles.imageProp} size={75} source={require('../../assets/tesna.png')} />
+                      </TouchableOpacity>
                       <Text style={styles.cardTitle}>{artwork.name}</Text>
                     </ImageBackground>
                   </View>

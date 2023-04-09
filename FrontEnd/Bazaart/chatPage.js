@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { ImageBackground, Text, View } from 'react-native'
+import React from 'react'
+import { ImageBackground, Text, SafeAreaView, ScrollView, View, TouchableOpacity } from 'react-native'
 
 const db = [
   {
@@ -53,39 +53,47 @@ const db = [
 
 const styles = {
     container: {
-        flex: 1,
-        justifyContent: 'space-between',
+        flex:1,
+        backgroundColor: '#ffcccc'
     },
     headerText: {
         fontWeight: 'bold',
-        fontSize: 30,
-        position: 'absolute',
-        top: -35,
+        fontSize: 35,
         marginLeft: 25,
+        top: 35
     },
     secondHeaderText: {
         fontSize: 20,
         position: 'absolute',
         top: -5,
-        marginLeft: 25,
+        marginLeft: -45,
     },
     NameStyle: {
         fontSize: 17,
         fontWeight: 'bold',
-        marginLeft: 95,
-        top: -15
-
+        marginLeft: 100,
+        top: -10,
     },
     PostTime: {
-        fontSize: 12,
+        fontSize: 14,
         color: 'grey',
-        marginLeft: 350,
+        marginLeft: 300,
         top: -45
     },
     MessageText: {
-        fontSize: 14,
-        marginLeft: 95,
-        top: -15
+        fontSize: 15,
+        marginLeft: 100,
+        top: -10
+    },
+    contactContainer: {
+        backgroundColor: 'white',
+        bottom: -40,
+        borderRadius: 60,
+    },
+    invidualContainer: {
+        backgroundColor: 'white',
+        justifyContent: 'space-between',
+        flex: 1
     }
 
 }
@@ -93,36 +101,37 @@ const styles = {
  
 function ChatPage() {
     const users = db
-    
+
     return (
         <View style={styles.container}>
             <Text style={styles.headerText}>
                 Chats
             </Text>
-            <Text style ={styles.secondHeaderText}>
-                Pending 
-            </Text>
-            <View>
+            <ScrollView style={styles.contactContainer}>
                 {users.map((user) => 
-                <View>
+                <TouchableOpacity>
+                    <SafeAreaView style={styles.invidualContainer}>
                     <ImageBackground
                     key={user}
                     source={user.profilePic}
                     imageStyle={{borderRadius: 25,}}
                     style={{position: 'relative',
                         marginLeft: 25,
-                        bottom: -50,
-                        width: 50,
-                        height: 50,
-                        marginBottom: 10
+                        bottom: -60,
+                        width: 55,
+                        height: 55,
+                        marginBottom: 15,
+                        margin: -35,
+                        padding: -50
                     }}>
                     </ImageBackground>
-                    <Text style={styles.NameStyle}>{user.name}</Text>
-                    <Text style={styles.MessageText}>{user.messageText}</Text>
-                    <Text style={styles.PostTime}>{user.messageTime}</Text>
-                </View>
+                        <Text style={styles.NameStyle}>{user.name}</Text>
+                        <Text style={styles.MessageText}>{user.messageText}</Text>
+                        <Text style={styles.PostTime}>{user.messageTime}</Text>
+                </SafeAreaView>
+                </TouchableOpacity>
                 )}
-            </View>
+            </ScrollView>
         </View>
     )
 }

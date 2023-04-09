@@ -7,12 +7,12 @@ import MessageV2 from './MessageV2'
 import ArtistProfile from './ArtistProfile'
 import { Message } from 'react-native-gifted-chat';
 
+
 export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.row}>
-        {/* <MessageV2/> */}
-        <MessageV2></MessageV2>
+        <ChatPage></ChatPage>
       </View>
     </View>
   )

@@ -1,4 +1,4 @@
-artist_id,name,pronouns,city,state,genre,artwork_id_list,customer_id_list,available_for_custom
+artist_id,username,pronouns,city,us_state,genre,artwork_id_list,customer_id_list,available_for_custom
 343,Daquinious Demarcus,he/him/his,New York,New York,Oil Painting,32432,374,N
 213,Hanni Pham,she/her/hers,Chicago,Illinois,Portrait,89432,121,Y
 612,Sam Oh,he/him/his,Los Angeles,California,Digital Art,78567,521,N

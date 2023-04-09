@@ -1,4 +1,4 @@
-cid,name,pronouns,city,state,interested_genres,low_price,high_price,artist_id_list,artwork_id_list
+cid,username,pronouns,city,us_state,interested_genres,low_price,high_price,artist_id_list,artwork_id_list
 374,Natasha Nguyen,she/her/hers,Cypress,Texas,Abstract Art,$450,MAXINT,343,32432
 121,Kwon Soon-young,he/him/his,Houston,Texas,Realism,$200,"$3,000",213,89432
 521,Rebecca Ye,she/her/hers,Honolulu,Hawaii,Oil Prantings,$500,"$1,000",612,78567

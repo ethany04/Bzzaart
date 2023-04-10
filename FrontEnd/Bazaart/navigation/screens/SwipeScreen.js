@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { ImageBackground, Text, View, Button, Modal, TouchableOpacity } from 'react-native'
+import { ImageBackground, Text, View, Button, Modal, TouchableOpacity, Image } from 'react-native'
 import TinderCard from 'react-tinder-card'
-import { Avatar } from 'react-native-paper';
+import { Avatar } from 'react-native-elements';
+
 
 const styles = {
   safeView: {
@@ -36,6 +37,7 @@ const styles = {
     height: 620,
     overflow: 'hidden',
     borderRadius: 20,
+    justifyContent: 'center'
   },
   cardTitle: {
     position: 'absolute',
@@ -62,6 +64,7 @@ const styles = {
     position: 'absolute',
     bottom: 25,
     margin: 15,
+    flex: 1,
   },
 }
 
@@ -110,9 +113,13 @@ function Simple() {
               <TinderCard key={artwork.name} onSwipe={() => console.log(artwork.img)} preventSwipe={['down']}>
                   <View style={styles.card}>
                     <ImageBackground style={styles.cardImage} src={ `/Users/ethanyu/Documents/sp23 bt/sp23-compensation/FrontEnd/Bazaart/assets/${artwork.img}` }>
-                      <TouchableOpacity style={{ flex: 1 }} onPress={() => setModalVisible(true)}>
-                        <Avatar.Image style={styles.imageProp} size={75} source={require('../../assets/tesna.png')} />
-                      </TouchableOpacity>
+                      <Button onPress={() => console.log("PRESSED")} title={""} style={styles.imageProp}>
+                        <ImageBackground source={require('../../assets/tesna.png')}/>
+                      </Button>
+                      {/* <TouchableOpacity  onPress={() => console.log("PRESSED")}>
+                        <ImageBackground style={styles.imageProp} source={require('../../assets/tesna.png')} onPress={() => console.log("PRESSED IMAGE")}/>
+                        {/* <Avatar rounded size="large" source={require('../../assets/tesna.png')} /> }
+                      </TouchableOpacity> */}
                       <Text style={styles.cardTitle}>{artwork.name}</Text>
                     </ImageBackground>
                   </View>
@@ -124,7 +131,7 @@ function Simple() {
           <Modal
           transparent={ true }
           visible={ modalVisible }
-          animationType='slide'
+          animationType='fade'
           >
             <View style={styles.outerModal}>
               <Text style={{fontSize: 50}}>this is the modal</Text>

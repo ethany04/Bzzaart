@@ -19,7 +19,7 @@ FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 LINES
-(artist_id,username,pronouns,city,us_state,genre,artwork_id_list,customer_id_list,available_for_custom);
+(artist_id,username,pronouns,city,us_state,genre,artwork_id_list,customer_id_list,available_for_custom,profile_pic_url);
 
 CREATE TABLE IF NOT EXISTS artworks_data(
   artwork_id SMALLINT(10) UNSIGNED,

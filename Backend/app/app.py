@@ -15,8 +15,8 @@ def artworks() -> List[Dict]:
     }
     connection = mysql.connector.connect(**config)
     cursor = connection.cursor()
-    cursor.execute('SELECT art_name, art_url FROM artworks_data')
-    results=[{"name": art_name, "img": art_url} for (art_name, art_url) in cursor]
+    cursor.execute('SELECT art_name, art_url, artist_id FROM artworks_data')
+    results=[{"name": art_name, "img": art_url, "artist_id": artist_id} for (art_name, art_url, artist_id) in cursor]
     cursor.close()
     connection.close()
     

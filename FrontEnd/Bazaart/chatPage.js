@@ -53,8 +53,9 @@ const db = [
 
 const styles = {
     container: {
-        flex:1,
-        backgroundColor: '#ffcccc'
+        flex:1.5,
+        backgroundColor: '#ffcccc',
+        height: 850
     },
     headerText: {
         fontWeight: 'bold',

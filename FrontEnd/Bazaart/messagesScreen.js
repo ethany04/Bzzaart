@@ -1,53 +1,46 @@
-import React, { useState, useEffect } from 'react-native';
-import { GiftedChat } from 'react-native-gifted-chat';
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import 'firebase/compat/database';
+import React, { useState, useEffect, useCallback } from 'react';
+import { View, ScrollView, Text, Button, StyleSheet } from 'react-native';
+import { Bubble, GiftedChat, Send } from 'react-native-gifted-chat';
 
-const firebaseConfig = {
-    apiKey: "AIzaSyA4kglMm5RuMkttQSBKg-i_gtFPa5WaBIw",
-    authDomain: "bazaart-c8baf.firebaseapp.com",
-    projectId: "bazaart-c8baf",
-    storageBucket: "bazaart-c8baf.appspot.com",
-    messagingSenderId: "1034283516558",
-    appId: "1:1034283516558:web:6b66b33b0f91b766143fdf",
-    measurementId: "G-PRN4T0K72L"
-  };
-
-  if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-  }
-
-  //sets up reference to database
-  const db = firebase.database().ref();
-
-  export default function MessagesScreen() {
-    //create a state variable to hold chat messages 
+const messagesScreen = () => {
     const [messages, setMessages] = useState([]);
 
     useEffect(() => {
-        //add new messages to database and update the state accordingly 
-        db.on('child_added', (snapshot) => {
-            setMessages((prevMessages) => GiftedChat.append(prevMessages, snapshot.val())
-            );
-        }, []);
+        setMessages([
+            {
+                _id: 1,
+                text: 'Hello developer',
+                createdAt: new Date(),
+                user: {
+                    _id: 2,
+                    name: 'Tesna',
+                    avatar: require('./assets/tesna.png'),
+                },
+            },
+            {
+                _id: 2,
+                text: 'Hello',
+                createdAt: new DataTransfer(),
+                user: {
+                    _id: 1,
+                    name: 'Ashmita',
+                    avatar: require('./assets/ashmita.png'),
+                },
+            },
+        ]);
+    }, [])
 
-    
-        const onSend = async (newMessages) => {
-            const message = newMessages[0];
-            db.push().set(message);
-        };
-
-        //render giftedchat component passing in messages, onSend function, and user object as props
-        return (
-            <GiftedChat 
-                messages={messages}
-                onSend={(newMessages) => onSend(newMessages)}
-                user={{_id: 1}}
-            />
+    const onSend = useCallback((messages = []) => {
+        setMessages((previousMessages) => 
+        GiftedChat.append(previousMessages, messages),
         );
-    })
-  }
+    }, []);
 
+    const renderSend = (props) => {
+        return (
+            <Send {...props}>
 
-
+            </Send>
+        )
+    }
+}

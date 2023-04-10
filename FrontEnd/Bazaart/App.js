@@ -3,14 +3,16 @@ import { StyleSheet, Text, View } from 'react-native'
 import SwipePage from'./SwipePage'
 import ArtWorkPage from './ArtWorkPage'
 import ChatPage from './chatPage'
-import messagesScreen from './messagesScreen';
+import MessageV2 from './MessageV2'
+import ArtistProfile from './ArtistProfile'
+import { Message } from 'react-native-gifted-chat';
 
 
 export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.row}>
-        <ChatPage/>
+        <ChatPage></ChatPage>
       </View>
     </View>
   )

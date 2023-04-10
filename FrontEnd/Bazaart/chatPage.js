@@ -1,7 +1,5 @@
-
-import React, { useState } from 'react'
-import { ImageBackground, Text, View, TouchableWithoutFeedback } from 'react-native'
-
+import React from 'react'
+import { ImageBackground, Text, SafeAreaView, ScrollView, View, TouchableOpacity } from 'react-native'
 
 const db = [
   {
@@ -9,146 +7,133 @@ const db = [
     profilePic: require('./assets/asmita.png'),
     messageTime: '4 mins ago',
     messageText:
-      'Hi, I am interested in a customized painting'
+      'Hey there',
   },
   {
     name: 'Jatin',
     profilePic: require('./assets/jatin.png'),
     messageTime: '2 hours ago',
     messageText:
-      'Hi, I am interested in a customized painting'
+      'Hey there',
   },
   {
     name: 'Megha',
     profilePic: require('./assets/megha.png'),
     messageTime: '1 hours ago',
     messageText:
-      'Hi, I am interested in a customized painting'
+      'Hey there',
   },
   {
     name: 'Neer',
     profilePic: require('./assets/neer.png'),
     messageTime: '1 day ago',
     messageText:
-      'Hi, I am interested in a customized painting'
+      'Hey there',
   },
   {
     name: 'Priya',
     profilePic: require('./assets/priya.png'),
     messageTime: '2 days ago',
     messageText:
-      'Hi, I am interested in a customized painting'
+      'Hey there',
   },
   {
     name: 'Ryan',
     profilePic: require('./assets/ryan.png'),
     messageTime: '30 mins ago',
-    messageText: 'What other art pieces do you do?',
+    messageText: 'Hi',
   },
   {
     name: 'Tesna',
     profilePic: require('./assets/tesna.png'),
     messageTime: '3 days ago',
-    messageText: 'What other art pieces do you do?',
+    messageText: 'Hi',
   }
 ];
 
 const styles = {
     container: {
-        flex: 1,
-        justifyContent: 'space-between',
-        width: '100%'
+        flex:1,
+        backgroundColor: '#ffcccc'
     },
     headerText: {
         fontWeight: 'bold',
-        fontSize: 30,
-        position: 'absolute',
-        top: -35,
+        fontSize: 35,
         marginLeft: 25,
+        top: 35
     },
     secondHeaderText: {
         fontSize: 20,
         position: 'absolute',
         top: -5,
-        marginLeft: 25,
+        marginLeft: -45,
     },
     NameStyle: {
         fontSize: 17,
         fontWeight: 'bold',
-        marginLeft: 95,
-        top: 0
-
+        marginLeft: 100,
+        top: 20
     },
     PostTime: {
         fontSize: 12,
         color: 'grey',
-        marginLeft: 350,
-        top: -35
+        marginLeft: 300,
+        top: -10
     },
     MessageText: {
-        fontSize: 14,
-        marginLeft: 95,
-        flexWrap: 'wrap'
+        fontSize: 15,
+        marginLeft: 100,
+        top: 20
+    },
+    contactContainer: {
+        backgroundColor: 'white',
+        bottom: -40,
+        borderRadius: 60,
+    },
+    invidualContainer: {
+        backgroundColor: 'white',
+        justifyContent: 'space-between',
+        flex: 1
     }
 
 }
 
-
+ 
 function ChatPage() {
     const users = db
 
     return (
-        <TouchableWithoutFeedback>
         <View style={styles.container}>
             <Text style={styles.headerText}>
                 Chats
             </Text>
-            <Text style ={styles.secondHeaderText}>
-                Pending 
-            </Text>
-            <View>
+            <ScrollView style={styles.contactContainer}>
                 {users.map((user) => 
-                <View>
+                <TouchableOpacity>
+                    <SafeAreaView style={styles.invidualContainer}>
+                    <Text style={styles.NameStyle}>{user.name}</Text>
+                    <Text style={styles.MessageText}>{user.messageText}</Text>
+                    <Text style={styles.PostTime}>{user.messageTime}</Text>
                     <ImageBackground
                     key={user}
                     source={user.profilePic}
                     imageStyle={{borderRadius: 25,}}
                     style={{position: 'relative',
                         marginLeft: 25,
-                        bottom: -50,
-                        width: 50,
-                        height: 50,
-                        marginBottom: 0
+                        bottom: -5,
+                        width: 55,
+                        height: 55,
+                        marginBottom: 15,
+                        margin: -35,
+                        padding: -50
                     }}>
                     </ImageBackground>
-                    <Text style={styles.NameStyle}>{user.name}</Text>
-                    <Text style={styles.MessageText}>{user.messageText}</Text>
-                    <Text style={styles.PostTime}>{user.messageTime}</Text>
-                </View>
-                )}
-            </View>
+                </SafeAreaView>
+                </TouchableOpacity>
+            )}
+            </ScrollView>
         </View>
-        </TouchableWithoutFeedback>
     )
 }
 
 export default ChatPage;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -95,6 +95,7 @@ const styles = StyleSheet.create ({
     },
     title_container: {
         paddingLeft: 10,
+        top: 50,
     },
     title: {
         fontWeight: 'bold',
@@ -104,6 +105,7 @@ const styles = StyleSheet.create ({
         paddingTop: 10,
         borderBottomColor: 'black',
         borderBottomWidth: 5,
+        top: 50,
     },
     divider_less_container: {
         paddingLeft: 20,
@@ -116,7 +118,8 @@ const styles = StyleSheet.create ({
         opacity: 1,
     },
     artist_header: {
-        alignItems: 'center'
+        alignItems: 'center',
+        top: 50,
     },
     artist_name_container: {
         paddingLeft: 10,
@@ -154,7 +157,8 @@ const styles = StyleSheet.create ({
     genre: {
         // ff337c
         // d600a5
-        backgroundColor: 'white',
+        backgroundColor: 'rgba(255, 218, 227, 1)',
+        borderColor: 'white',
         borderRadius: 10,
         padding: 3,
     },

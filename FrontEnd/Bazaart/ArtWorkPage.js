@@ -9,9 +9,12 @@ import {
 } from 'react-native';
 
 import Button from "react-native-bootstrap-buttons";
+import { addTheme } from "react-native-bootstrap-buttons";
 
 
 function artWorkPage() {
+
+    addTheme("myButton", "black", "white", "pink", "grey")
     return (
         <SafeAreaView>
             <ScrollView style={{width: 300, height: 500}}>
@@ -24,9 +27,8 @@ function artWorkPage() {
                     <Text style={styles.price}>$800</Text>
                     <Text style={styles.description}>Oil Painting by Daquinious Demarcus capturing night life and the life.</Text>
                     <Button 
-                        color="red"
-                        label="Add to Cart"
-                        buttonType="primary" rounded
+                        buttonType="myButton" 
+                        label = "                      Add to Cart" 
                         />
                 </View>
 
@@ -40,7 +42,13 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: "orange",
         padding: 20,
-        marginTop: 150
+        marginTop: 150,
+        alignItems: 'center'
+    },
+    text: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: 'white',
     },
     image: {
         bottom: 0
@@ -64,18 +72,6 @@ const styles = StyleSheet.create({
         color: 'black',
         marginBottom: 16,
     },
-    navContainer: {
-        position: 'absolute',
-        alignItems: 'center',
-        bottom: 20,
-    },
-    navBar: {
-        flexDirection: 'row',
-        backgroundColor: 'blue',
-        width: '90%',
-        justifyContent: 'space-evenly',
-        boarderRadius: 40
-    }
 });
 
 export default artWorkPage;

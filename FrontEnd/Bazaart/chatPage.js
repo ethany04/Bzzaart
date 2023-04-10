@@ -1,5 +1,7 @@
+
 import React, { useState } from 'react'
-import { ImageBackground, Text, View } from 'react-native'
+import { ImageBackground, Text, View, TouchableWithoutFeedback } from 'react-native'
+
 
 const db = [
   {
@@ -7,47 +9,47 @@ const db = [
     profilePic: require('./assets/asmita.png'),
     messageTime: '4 mins ago',
     messageText:
-      'Hey there',
+      'Hi, I am interested in a customized painting'
   },
   {
     name: 'Jatin',
     profilePic: require('./assets/jatin.png'),
     messageTime: '2 hours ago',
     messageText:
-      'Hey there',
+      'Hi, I am interested in a customized painting'
   },
   {
     name: 'Megha',
     profilePic: require('./assets/megha.png'),
     messageTime: '1 hours ago',
     messageText:
-      'Hey there',
+      'Hi, I am interested in a customized painting'
   },
   {
     name: 'Neer',
     profilePic: require('./assets/neer.png'),
     messageTime: '1 day ago',
     messageText:
-      'Hey there',
+      'Hi, I am interested in a customized painting'
   },
   {
     name: 'Priya',
     profilePic: require('./assets/priya.png'),
     messageTime: '2 days ago',
     messageText:
-      'Hey there',
+      'Hi, I am interested in a customized painting'
   },
   {
     name: 'Ryan',
     profilePic: require('./assets/ryan.png'),
     messageTime: '30 mins ago',
-    messageText: 'Hi',
+    messageText: 'What other art pieces do you do?',
   },
   {
     name: 'Tesna',
     profilePic: require('./assets/tesna.png'),
     messageTime: '3 days ago',
-    messageText: 'Hi',
+    messageText: 'What other art pieces do you do?',
   }
 ];
 
@@ -55,6 +57,7 @@ const styles = {
     container: {
         flex: 1,
         justifyContent: 'space-between',
+        width: '100%'
     },
     headerText: {
         fontWeight: 'bold',
@@ -73,28 +76,29 @@ const styles = {
         fontSize: 17,
         fontWeight: 'bold',
         marginLeft: 95,
-        top: -15
+        top: 0
 
     },
     PostTime: {
         fontSize: 12,
         color: 'grey',
         marginLeft: 350,
-        top: -45
+        top: -35
     },
     MessageText: {
         fontSize: 14,
         marginLeft: 95,
-        top: -15
+        flexWrap: 'wrap'
     }
 
 }
 
- 
+
 function ChatPage() {
     const users = db
-    
+
     return (
+        <TouchableWithoutFeedback>
         <View style={styles.container}>
             <Text style={styles.headerText}>
                 Chats
@@ -114,7 +118,7 @@ function ChatPage() {
                         bottom: -50,
                         width: 50,
                         height: 50,
-                        marginBottom: 10
+                        marginBottom: 0
                     }}>
                     </ImageBackground>
                     <Text style={styles.NameStyle}>{user.name}</Text>
@@ -124,6 +128,7 @@ function ChatPage() {
                 )}
             </View>
         </View>
+        </TouchableWithoutFeedback>
     )
 }
 

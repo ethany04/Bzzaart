@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import SwipePage from'./SwipePage'
 import ArtWorkPage from './ArtWorkPage'
 import ChatPage from './chatPage'
+import messagesScreen from './messagesScreen';
 
 
 export default function App() {

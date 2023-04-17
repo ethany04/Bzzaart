@@ -10,10 +10,11 @@ CREATE TABLE IF NOT EXISTS artists_data(
   genre VARCHAR(50),
   artwork_id_list TEXT(65535),
   customer_id_list TEXT(65535),
-  available_for_custom SMALLINT(1)
+  available_for_custom SMALLINT(1),
+  profile_pic_url TEXT(65535)
 );
 
-LOAD DATA LOCAL INFILE '/docker-entrypoint-initdb.d/data_files/artists.csv'
+LOAD DATA LOCAL INFILE '/docker-entrypoint-initdb.d/data_files/Artists.csv'
 INTO TABLE artists_data
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
@@ -27,16 +28,17 @@ CREATE TABLE IF NOT EXISTS artworks_data(
   genre VARCHAR(50),
   artist_id SMALLINT(10) UNSIGNED,
   price SMALLINT(10) UNSIGNED,
+  descrip TEXT(65535),
   art_url TEXT(65535)
 );
 
-LOAD DATA LOCAL INFILE '/docker-entrypoint-initdb.d/data_files/artworks.csv'
+LOAD DATA LOCAL INFILE '/docker-entrypoint-initdb.d/data_files/Artworks.csv'
 INTO TABLE artworks_data
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\r'
 IGNORE 1 LINES
-(artwork_id,art_name,genre,artist_id,price,art_url);
+(artwork_id,art_name,genre,artist_id,price,descrip,art_url);
 
 CREATE TABLE IF NOT EXISTS customers_data(
   cid SMALLINT(10) UNSIGNED,
@@ -51,24 +53,10 @@ CREATE TABLE IF NOT EXISTS customers_data(
   artwork_id_list TEXT(65535)
 );
 
-LOAD DATA LOCAL INFILE '/docker-entrypoint-initdb.d/data_files/customers.csv'
+LOAD DATA LOCAL INFILE '/docker-entrypoint-initdb.d/data_files/Customers.csv'
 INTO TABLE customers_data
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 LINES
 (cid,username,pronouns,city,us_state,interested_genres,low_price,high_price,artist_id_list,artwork_id_list);
-
-
-/*
-CREATE TABLE favorite_colors (
-  name VARCHAR(20),
-  color VARCHAR(10)
-);
-
-INSERT INTO favorite_colors
-  (name, color)
-VALUES
-  ('Lancelot', 'blue'),
-  ('Galahad', 'yellow');
-  */

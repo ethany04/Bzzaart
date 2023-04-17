@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { ImageBackground, Text, View, Button, Modal, TouchableOpacity, Image } from 'react-native'
+import { ImageBackground, Text, View, Button, Modal, TouchableOpacity, Image, Pressable } from 'react-native'
 import TinderCard from 'react-tinder-card'
 import { Avatar } from 'react-native-elements';
+import { Swiper } from 'react-native-deck-swiper';
 
 
 const styles = {
@@ -18,6 +19,7 @@ const styles = {
     fontSize: 30,
     marginTop: 60,
     marginBottom: 20,
+    fontWeight: 'bold',
   },
   cardContainer: {
     width: 350,
@@ -37,7 +39,6 @@ const styles = {
     height: 620,
     overflow: 'hidden',
     borderRadius: 20,
-    justifyContent: 'center'
   },
   cardTitle: {
     position: 'absolute',
@@ -62,10 +63,23 @@ const styles = {
   },
   imageProp: {
     position: 'absolute',
-    bottom: 25,
-    margin: 15,
     flex: 1,
   },
+  touchProps: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  touchContainer: {
+    position: 'absolute',
+    bottom: 25,
+    margin: 15,
+  },
+  avatarContainer: {
+    position: 'absolute',
+    bottom: 30,
+    margin: 15,
+    color: '#fff',
+  }
 }
 
 function Simple() {
@@ -112,18 +126,33 @@ function Simple() {
             {artworks.map((artwork) =>
               <TinderCard key={artwork.name} onSwipe={() => console.log(artwork.img)} preventSwipe={['down']}>
                   <View style={styles.card}>
-                    <ImageBackground style={styles.cardImage} src={ `/Users/ethanyu/Documents/sp23 bt/sp23-compensation/FrontEnd/Bazaart/assets/${artwork.img}` }>
-                      <Button onPress={() => console.log("PRESSED")} title={""} style={styles.imageProp}>
-                        <ImageBackground source={require('../../assets/tesna.png')}/>
-                      </Button>
-                      {/* <TouchableOpacity  onPress={() => console.log("PRESSED")}>
-                        <ImageBackground style={styles.imageProp} source={require('../../assets/tesna.png')} onPress={() => console.log("PRESSED IMAGE")}/>
-                        {/* <Avatar rounded size="large" source={require('../../assets/tesna.png')} /> }
-                      </TouchableOpacity> */}
+                    <ImageBackground style={styles.cardImage} src={ `/Users/ethanyu/Documents/sp23 bt/sp23-compensation/FrontEnd/Bazaart/assets/${artwork.img}` } />
+                      {/* <Pressable onPress={() => console.log("PRESSED YEEEE")}> */}
+                        
+                      {/* </Pressable> */}
+                      <View style={styles.avatarContainer}>
+                        <Avatar
+                          rounded
+                          size="large"
+                          source={require('../../assets/tesna.png')}
+                          onPress={() => console.log("PRESSED")}
+                        />
+                      </View>
                       <Text style={styles.cardTitle}>{artwork.name}</Text>
-                    </ImageBackground>
                   </View>
               </TinderCard>
+              // <View style={ {flex: 1, margin: -6} }>
+              //   <Swiper
+              //     containerStyle={ {backgroundColor: 'transparent'}}
+              //     cards={artworks}
+              //     key={artwork.name}
+              //   >
+              //       <View style={{backgroundColor: 'red', height: 0.75, rounded: 'xl'}}>
+              //         <Text>{artwork.name}</Text>
+              //       </View>
+              //   </Swiper>
+
+              // </View>
             )}
         </View>
         <Button title="show modal" onPress={() => setModalVisible(true)} />                  

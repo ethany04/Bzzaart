@@ -8,21 +8,21 @@ function BookmarkScreen() {
             name: 'Sam Oh',
             pfp: require("../../assets/s0m.png"),
             genre: '#Digital #Graphic',
-            img: require("../../assets/Sam_Oh_Digital_Art.jpg"),
+            img: require("../../assets/NightLife.jpeg"),
             bookmark: true
         },
         {
             name: 'Hanni Pham',
             pfp: require("../../assets/hanni.png"),
             genre: '#Portrait #Acrylic Painting',
-            img: require("../../assets/Hanni_Pham_Portrait_Art.jpeg"),
+            img: require("../../assets/Woman.jpeg"),
             bookmark: true
         },
         {
             name: 'Daquinious D.',
             pfp: require("../../assets/Daquin.png"),
             genre: '#Landscape #Oil Painting',
-            img: require("../../assets/Daquinious_Demarcus_Oil_Painting.jpeg"),
+            img: require("../../assets/Astronaut.jpg"),
             bookmark: true
         },
     
@@ -157,7 +157,7 @@ const styles = StyleSheet.create ({
     genre: {
         // ff337c
         // d600a5
-        backgroundColor: 'rgba(255, 218, 227, 1)',
+        backgroundColor: 'rgba(255, 168, 77, 0.47)',
         borderColor: 'white',
         borderRadius: 10,
         padding: 3,

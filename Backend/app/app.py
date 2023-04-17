@@ -5,7 +5,7 @@ import json
 
 app = Flask(__name__)
 
-def artworks() -> List[Dict]:
+def imagesForSwipe() -> List[Dict]:
     config = {
         'user': 'root',
         'password': 'root',
@@ -24,7 +24,7 @@ def artworks() -> List[Dict]:
 
 @app.route('/images')
 def index() -> str:
-    return json.dumps(artworks())
+    return json.dumps(imagesForSwipe())
 
 
 if __name__ == '__main__':

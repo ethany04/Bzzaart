@@ -12,7 +12,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.row}>
-        <ChatPage></ChatPage>
+        <ArtWorkPage></ArtWorkPage>
       </View>
     </View>
   )

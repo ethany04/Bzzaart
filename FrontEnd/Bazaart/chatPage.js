@@ -61,7 +61,7 @@ const styles = {
         fontWeight: 'bold',
         fontSize: 35,
         marginLeft: 25,
-        top: 35
+        top: 65
     },
     secondHeaderText: {
         fontSize: 20,
@@ -88,7 +88,7 @@ const styles = {
     },
     contactContainer: {
         backgroundColor: 'white',
-        bottom: -40,
+        bottom: -70,
         borderRadius: 60,
     },
     invidualContainer: {

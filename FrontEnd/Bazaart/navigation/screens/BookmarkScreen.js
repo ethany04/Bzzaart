@@ -5,17 +5,15 @@ import { Avatar } from 'react-native-elements';
 
 function BookmarkScreen() {
 
-    // const [artists, updateArtists] = useState([
-    //     {
-    //         name: 'Tesna Thomas',
-    //         pfp: require("../../assets/tesna.png"),
-    //         genre: 'Impressionism',
-    //         img: require("../../assets/NightLife.jpeg"),
-    //         bookmark: true
-    //     }
-    // ])
-
-    const artists = this.props.route.params.bookmarkedArtists;
+    const [artists, updateArtists] = useState([
+        {
+            name: 'Tesna Thomas',
+            pfp: require("../../assets/tesna.png"),
+            genre: 'Impressionism',
+            img: require("../../assets/NightLife.jpeg"),
+            bookmark: true
+        }
+    ])
 
     const renderItem = ({ item }) => (
         <View style={styles.item} resizeMode="cover">
@@ -52,17 +50,7 @@ function BookmarkScreen() {
                                 <View style={styles.genre}>
                                     <Text>{artist.genre}</Text>
                                 </View>
-                                <View style={styles.artList}>
-                                    {/* <FlatList
-                                        data={artistPics}
-                                        key={1}
-                                        numColumns={2}
-                                        renderItem={renderItem}
-                                        keyExtractor={(item) => item.key}
-                                        contentContainerStyle={{size: 64}}
-                                    /> */}x
-                                    <Image source={require('../../assets/Bordighera.jpg')} style={{width: '100%', height: 300}}/>
-                                </View>
+                                <View style={{width: 360, height: 1, backgroundColor: 'black'}} />
                             </View> 
                         )}        
                 </ScrollView>
@@ -111,8 +99,8 @@ const styles = StyleSheet.create ({
         fontWeight: 'bold',
         fontSize: 25,
         color: 'black',
-        // borderLeftWidth: 10,
-        // borderRightWidth: 10,
+        borderLeftWidth: 10,
+        borderRightWidth: 10,
     },
     icon: {
         width: 50, 

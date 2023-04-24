@@ -1,88 +1,73 @@
 import React, { useState }  from 'react'
-import { Image, Text, View, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView} from 'react-native';
+import { Image, Text, View, StyleSheet, ScrollView, TouchableOpacity, FlatList, ImageBackground} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { Avatar } from 'react-native-elements';
 
 function BookmarkScreen() {
-    const [artists, updateArtists] = useState([
-        {
-            name: 'Sam Oh',
-            pfp: require("../../assets/s0m.png"),
-            genre: '#Digital #Graphic',
-            img: require("../../assets/NightLife.jpeg"),
-            bookmark: true
-        },
-        {
-            name: 'Hanni Pham',
-            pfp: require("../../assets/hanni.png"),
-            genre: '#Portrait #Acrylic Painting',
-            img: require("../../assets/Woman.jpeg"),
-            bookmark: true
-        },
-        {
-            name: 'Daquinious D.',
-            pfp: require("../../assets/Daquin.png"),
-            genre: '#Landscape #Oil Painting',
-            img: require("../../assets/Astronaut.jpg"),
-            bookmark: true
-        },
-    
-    ])
+
+    // const [artists, updateArtists] = useState([
+    //     {
+    //         name: 'Tesna Thomas',
+    //         pfp: require("../../assets/tesna.png"),
+    //         genre: 'Impressionism',
+    //         img: require("../../assets/NightLife.jpeg"),
+    //         bookmark: true
+    //     }
+    // ])
+
+    const artists = this.props.route.params.bookmarkedArtists;
+
+    const renderItem = ({ item }) => (
+        <View style={styles.item} resizeMode="cover">
+          <Image source={item.image} style={styles.image} />
+        </View>
+    );
+
+    const artistPics = [
+        { key: 'item1', image: require('../../assets/BouquetSunflowers.jpeg')},
+        { key: 'item2', image: require('../../assets/Bordighera.jpg')},
+        { key: 'item3', image: require('../../assets/WaterLilies.jpeg') },
+        { key: 'item4', image: require('../../assets/WaterLilyPond.jpeg') },
+        { key: 'item5', image: require('../../assets/Giverny.jpeg')},
+        { key: 'item6', image: require('../../assets/SanGiorgio.jpeg')},
+      
+      ];
 
     return (  
-        <ScrollView style={styles.container}>
-            <View style={styles.title_container}>
-                <Text style={styles.title}>
-                        Bookmarked Artists
-                </Text>
-            </View>
-            <View style={styles.divider}/>
-            <View>
-                {artists.map((artist) => 
-                    <View key={artist.name}>
-                        {/* const [artist.bookmark, setBookmark] = useState(artist.bookmark); */}
-                        {artist.bookmark &&
-                        <View style={styles.artist_header}>
-                            <Text>
-                                {"\n"}
-                                <View style={styles.pfp_container}>
-                                    <Image
-                                    style={styles.pfp}
-                                    source={artist.pfp}>
-                                    </Image>
-                                </View>
-                                <View style={styles.artist_name_container}>
-                                    <Text style={styles.artist_name}>
-                                        {artist.name}       
-                                    </Text>
-                                </View>
-                                {/* onPress={() => {artist.changeBookmarkVal(artist.bookmark); forceUpdate}} */}
-                                        <TouchableOpacity>
-                                            {artist.bookmark && <Ionicons name={'bookmark'} size={40} color={'#ff0f69'} borderColor={'#ff0f69'}/>}
-                                            {/* {!artist.bookmark && <Ionicons name={'bookmark'} size={40} color={'#ff0f69'} borderColor={'#ff0f69'}/>} */}
-                                        </TouchableOpacity>
-                                {'\n'}
-                                {"\t\t"}
-                                <View style={styles.genre}>
-                                    <Text>
-                                    {artist.genre}
-                                    </Text>
-                                </View>
-                            </Text>
-                            <Image
-                                style={styles.art}
-                                source={artist.img}
-                            />
-                        </View>
-                        }
-                        {artist.bookmark && <View style={styles.divider_less_container}>
-                                <View style={styles.divider_less}/>
-                            </View>}
-                    
+        <View style={styles.container} contentContainerStyle={{justifyContent: 'center', alignItems: 'center'}}>
+            <ImageBackground source={require('../../assets/swipeBack.png')} style={{flex: 1, width: '100%'}} >
+                    <View style={styles.title_container}>
+                        <Text style={{ fontWeight: 'bold', fontSize: 40 }}>Bookmarked Artists</Text>
                     </View>
-            )}
-            </View>
-        
-        </ScrollView>
+                <ScrollView>
+                        {artists.map((artist) => 
+                            <View key={artist.name} style={styles.artist_content}>
+                                <Avatar
+                                    rounded
+                                    size="large"
+                                    source={require('../../assets/tesna.png')}
+                                />
+                                <Text style={styles.artist_name}>{artist.name}</Text>
+                                <TouchableOpacity>{artist.bookmark && <Ionicons name={'bookmark'} size={40} color={'#ff0f69'} borderColor={'#ff0f69'}/>}</TouchableOpacity>
+                                <View style={styles.genre}>
+                                    <Text>{artist.genre}</Text>
+                                </View>
+                                <View style={styles.artList}>
+                                    {/* <FlatList
+                                        data={artistPics}
+                                        key={1}
+                                        numColumns={2}
+                                        renderItem={renderItem}
+                                        keyExtractor={(item) => item.key}
+                                        contentContainerStyle={{size: 64}}
+                                    /> */}x
+                                    <Image source={require('../../assets/Bordighera.jpg')} style={{width: '100%', height: 300}}/>
+                                </View>
+                            </View> 
+                        )}        
+                </ScrollView>
+            </ImageBackground>
+        </View>
     )    
 }
 
@@ -94,12 +79,10 @@ const styles = StyleSheet.create ({
         flexGrow: 14,
     },
     title_container: {
-        paddingLeft: 10,
-        top: 50,
-    },
-    title: {
-        fontWeight: 'bold',
-        fontSize: 40,
+        top: 55,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 10
     },
     divider: {
         paddingTop: 10,
@@ -117,27 +100,19 @@ const styles = StyleSheet.create ({
         borderBottomWidth: 2,
         opacity: 1,
     },
-    artist_header: {
+    artist_content: {
         alignItems: 'center',
-        top: 50,
-    },
-    artist_name_container: {
-        paddingLeft: 10,
+        justifyContent: 'center',
+        top: 60,
+        flexWrap: 'wrap',
+        flexDirection: 'row',
     },
     artist_name: {
         fontWeight: 'bold',
         fontSize: 25,
         color: 'black',
-    },
-    pfp_container: {
-        paddingLeft: 10,
-    },
-    pfp: {
-        width: 50, 
-        height: 50,
-        borderRadius: 25,
-        borderWidth: 2,
-        borderColor: 'black',
+        // borderLeftWidth: 10,
+        // borderRightWidth: 10,
     },
     icon: {
         width: 50, 
@@ -155,14 +130,23 @@ const styles = StyleSheet.create ({
         borderWidth: 5,
     },
     genre: {
-        // ff337c
-        // d600a5
         backgroundColor: 'rgba(255, 168, 77, 0.47)',
-        borderColor: 'white',
         borderRadius: 10,
         padding: 3,
+        alignItems: 'center',
     },
-
+    artList: {
+        paddingTop: 5, 
+        overflow: 'hidden', 
+        height: 250, 
+        width: 350, 
+        borderWidth: 5, 
+        borderColor: "#FAEFE5", 
+        borderRadius: 10, 
+        justifyContent: 'center', 
+        alignItems: 'center',
+        top: 5,
+    }
 });
 
 export default BookmarkScreen;

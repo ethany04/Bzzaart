@@ -2,52 +2,52 @@ import React from 'react'
 import { ImageBackground, Text, SafeAreaView, ScrollView, View, TouchableOpacity } from 'react-native'
 
 const db = [
-  {
-    name: 'Asmita',
-    profilePic: require('../../assets/asmita.png'),
-    messageTime: '4 mins ago',
-    messageText:
-      'Hey there',
-  },
-  {
-    name: 'Jatin',
-    profilePic: require('../../assets/jatin.png'),
-    messageTime: '2 hours ago',
-    messageText:
-      'Hey there',
-  },
-  {
-    name: 'Megha',
-    profilePic: require('../../assets/megha.png'),
-    messageTime: '1 hours ago',
-    messageText:
-      'Hey there',
-  },
-  {
-    name: 'Neer',
-    profilePic: require('../../assets/neer.png'),
-    messageTime: '1 day ago',
-    messageText:
-      'Hey there',
-  },
-  {
-    name: 'Priya',
-    profilePic: require('../../assets/priya.png'),
-    messageTime: '2 days ago',
-    messageText:
-      'Hey there',
-  },
-  {
-    name: 'Ryan',
-    profilePic: require('../../assets/ryan.png'),
-    messageTime: '30 mins ago',
-    messageText: 'Hi',
-  },
+//   {
+//     name: 'Asmita',
+//     profilePic: require('../../assets/asmita.png'),
+//     messageTime: '4 mins ago',
+//     messageText:
+//       'Hey there',
+//   },
+//   {
+//     name: 'Jatin',
+//     profilePic: require('../../assets/jatin.png'),
+//     messageTime: '2 hours ago',
+//     messageText:
+//       'Hey there',
+//   },
+//   {
+//     name: 'Megha',
+//     profilePic: require('../../assets/megha.png'),
+//     messageTime: '1 hours ago',
+//     messageText:
+//       'Hey there',
+//   },
+//   {
+//     name: 'Neer',
+//     profilePic: require('../../assets/neer.png'),
+//     messageTime: '1 day ago',
+//     messageText:
+//       'Hey there',
+//   },
+//   {
+//     name: 'Priya',
+//     profilePic: require('../../assets/priya.png'),
+//     messageTime: '2 days ago',
+//     messageText:
+//       'Hey there',
+//   },
+//   {
+//     name: 'Ryan',
+//     profilePic: require('../../assets/ryan.png'),
+//     messageTime: '30 mins ago',
+//     messageText: 'Hi',
+//   },
   {
     name: 'Tesna',
     profilePic: require('../../assets/tesna.png'),
-    messageTime: '3 days ago',
-    messageText: 'Hi',
+    messageTime: 'Just now',
+    messageText: 'Hi! I saw your profile and...',
   }
 ];
 

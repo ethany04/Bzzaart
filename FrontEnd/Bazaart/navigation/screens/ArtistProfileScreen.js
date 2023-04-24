@@ -1,17 +1,11 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import { Text, View, StyleSheet, Image, Button, Alert, Pressable, SafeAreaView, ScrollView, StatusBar, FlatList } from 'react-native';
 import Constants from 'expo-constants';
-import { Linking } from 'react-native';
+import { Linking, LogBox } from 'react-native';
 
 
-// You can import from local files
-// import ArtistInfo from './components/ArtistInfo';
-
-// or any pure javascript modules available in npm
-// import { Card } from 'react-native-paper';
-
-const portfolioURL="https://www.txconvergent.org/"
-const socialURL="https://www.instagram.com/txconvergent/?hl=en"
+const portfolioURL="txconvergent.org"
+const socialURL="instagram.com/txconvergent"
 const renderItem = ({ item }) => (
     <View style={styles.item} resizeMode="cover">
       <Image source={item.image} style={styles.image} />
@@ -19,79 +13,59 @@ const renderItem = ({ item }) => (
 );
 
 const artistPics = [
-  { key: 'item1', image: require('./assets/monet.jpg')},
-  { key: 'item2', image: require('./assets/IMG_8804.jpg')},
-  { key: 'item3', image: require('./assets/ls2.jpg') },
-  { key: 'item4', image: require('./assets/money2.jpg') },
-  { key: 'item5', image: require('./assets/money2.jpg')},
-  { key: 'item6', image: require('./assets/money2.jpg')},
+  { key: 'item1', image: require('../../assets/BouquetSunflowers.jpeg')},
+  { key: 'item2', image: require('../../assets/Bordighera.jpg')},
+  { key: 'item3', image: require('../../assets/WaterLilies.jpeg') },
+  { key: 'item4', image: require('../../assets/WaterLilyPond.jpeg') },
+  { key: 'item5', image: require('../../assets/Giverny.jpeg')},
+  { key: 'item6', image: require('../../assets/SanGiorgio.jpeg')},
 
 ];
 
 
 
 export default function ArtistProfileScreen() {
+
+  useEffect(() => {
+    LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
+  }, [])
+
   return (
 
     <SafeAreaView style={styles.safeViewContainer}>
-     <ScrollView>
+      <View style={styles.container}>
 
-<View style={styles.container}>
+        <Image style={styles.profilePic} source={require('../../assets/tesna.png')} />
 
-  <Image style={styles.profilePic} source={require('./assets/tesna.png')} />
-
-  <Text style={styles.name}>
-    Tesna Thomas
-  </Text>
-  <Text style={styles.paragraph}>
-    she/her
-  </Text>
-  <Text onPress={() => Linking.openURL(portfolioURL)} style={styles.paragraph}>
-    artistportfolio.co
-  </Text>
-  <Text onPress={() => Linking.openURL(socialURL)} style={styles.paragraph}>
-    artistsocial.co
-  </Text>
-  <Pressable style={styles.button} onPress={() => Alert.alert('go to dm page')}>
-    <Text style={styles.whiteText}>
-      message
-    </Text>
-  </Pressable>
-</View>
+        <Text style={styles.name}>Tesna Thomas</Text>
+        <Text style={styles.paragraph}>she/her</Text>
+        <Text onPress={() => Linking.openURL(portfolioURL)} style={styles.paragraph}>{portfolioURL}</Text>
+        <Text onPress={() => Linking.openURL(socialURL)} style={styles.paragraph}>{socialURL}</Text>
+        <Pressable style={styles.button} onPress={() => Alert.alert('go to dm page')}>
+          <Text style={styles.whiteText}>message</Text>
+        </Pressable>
+      </View>
 
 
-<View style={styles.artistProfileButtons}>
-      <Text>
-        info
-      </Text>
-      <Text>
-        reviews
-      </Text>
-</View>
+      <View style={styles.artistProfileButtons}>
+            <Text>                 info                                         reviews                 </Text>
+      </View>
 
-<View style={styles.scrollView}>
-    <View style={styles.box}>
-      <Text style={styles.headerText}>
-        Meet Tesna!
-      </Text>
-      <Text style={styles.artistInfoText}>
-        ✨ Custom landscape paintings & photographic prints
-      </Text>
-      <Text style={styles.artistInfoText}>
-        📍 Based in NYC
-      </Text>
-    </View>
+      <View style={styles.scrollView}>
+        <View style={styles.box}>
+          <Text style={styles.headerText}>Meet Tesna!</Text>
+          <Text style={styles.artistInfoText}>✨ Custom landscape paintings & photographic prints</Text>
+          <Text style={styles.artistInfoText}>📍 Based in NYC</Text>
+        </View>
 
-    <FlatList
-        data={artistPics}
-        numColumns={2}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.key}
-    />
-
-
-</View>
-</ScrollView>
+        <FlatList
+            data={artistPics}
+            key={1}
+            numColumns={2}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.key}
+        />
+      </View>
 </SafeAreaView>      
 
   );
@@ -101,10 +75,9 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
     alignItems: 'center',
-    paddingTop: Constants.statusBarHeight,
-    backgroundColor: '#FCE5DF',
     padding: 8,
     paddingVertical: 5,
+    backgroundColor: '#FFDBA7',
     width: '100%'
   },
   name: {
@@ -145,21 +118,25 @@ const styles = StyleSheet.create({
   },
   safeViewContainer: {
     flex: 1,
+    backgroundColor: '#FFDBA7',
+    alignItems: 'center',
   },
   scrollView: {
     backgroundColor: 'white',
     flexDirection: 'column',
-    height: '200',
     padding: 10,
+    height: 288,
   },
   artistProfileButtons: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
+    alignItems: 'space-between',
     paddingTop: 2,
     paddingBottom: 5,
     borderColor: 'gray',
     borderBottomWidth: 1,
     borderTopWidth: 1,
+    backgroundColor: '#FAEFE5',
   },
   headerText: {
     fontSize: 18,

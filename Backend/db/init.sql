@@ -18,7 +18,7 @@ LOAD DATA LOCAL INFILE '/docker-entrypoint-initdb.d/data_files/Artists.csv'
 INTO TABLE artists_data
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
+LINES TERMINATED BY '\r\n'
 IGNORE 1 LINES
 (artist_id,username,pronouns,city,us_state,genre,artwork_id_list,customer_id_list,available_for_custom,profile_pic_url);
 
@@ -57,6 +57,6 @@ LOAD DATA LOCAL INFILE '/docker-entrypoint-initdb.d/data_files/Customers.csv'
 INTO TABLE customers_data
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
+LINES TERMINATED BY '\r'
 IGNORE 1 LINES
 (cid,username,pronouns,city,us_state,interested_genres,low_price,high_price,artist_id_list,artwork_id_list);

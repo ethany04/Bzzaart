@@ -1,4 +1,8 @@
-artwork_id,art_name,genre,artist_id,price,art_url
-32432,painting 1,Oil Painting,343,800,Daquinious_Demarcus_Oil_Painting.jpeg
-89432,painting 2,Portrait,213,1000,Hanni_Pham_Portrait_Art.jpeg
-78567,painting 3,Digital Art,612,450,Sam_Oh_Digital_Art.jpg
+artwork_id,art_name,genre,artist_id,price,descrip,art_url
+52952,Bordighera,Impressionism,529,1000000,A tree.,Bordighera.jpg
+89432,Woman,Portrait,213,1000,My kid used her crayons to draw her sister. She cooked :O.,Woman.jpeg
+52953,Bouquet of Sunflowers,Impressionism,529,999999,Some sunflowers.,BouquetSunflowers.jpeg
+52954,Water Lilies,Impressionism,529,999998,Some water lilies.,WaterLilies.jpeg
+52955,Water Lily Pond,Impressionism,529,999997,A simple pond of water lilies.,WaterLilyPond.jpeg
+32432,Night Life,Oil Painting,343,$800,Oil paint was used to emphasize the contrast between the light and the dark. Although the night enshrouds the world in darkness the light contrasts against the dark to highlight the blooming urban life. As one the nightlife of Paris comes alive.,NightLife.jpeg
+78567,Astronaut,Digital Art,612,450,My inspiration was that I was playing a game in which I couldn't just leave but my mom needed help buying groceries so I had to leave the game :<.,Astronaut.jpg

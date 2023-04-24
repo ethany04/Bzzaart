@@ -2,6 +2,8 @@ import * as React from 'react';
 import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, View } from 'react-native'
 import MainContainer from './navigation/MainContainer';
+import Swipe2 from './navigation/screens/Swipe2'
+import SwipeEthan from './navigation/screens/SwipeScreen';
 
 
 export default function App() {

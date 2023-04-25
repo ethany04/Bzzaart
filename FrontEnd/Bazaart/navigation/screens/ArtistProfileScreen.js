@@ -12,6 +12,8 @@ const renderItem = ({ item }) => (
     </View>
 );
 
+// const artist = this.props.route.params.artist
+
 const artistPics = [
   { key: 'item1', image: require('../../assets/BouquetSunflowers.jpeg')},
   { key: 'item2', image: require('../../assets/Bordighera.jpg')},

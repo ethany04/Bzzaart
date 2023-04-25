@@ -5,7 +5,7 @@ import { Avatar } from 'react-native-elements';
 import ArtistProfileScreen from './ArtistProfileScreen';
 
 
-function SwipeScreen() {
+function SwipeScreen({ navigation }) {
 
   useEffect(() => {
     LogBox.ignoreAllLogs();
@@ -17,6 +17,9 @@ function SwipeScreen() {
 
     const [modalVisible, setModalVisible] = useState(false);
     const [artworks, setArtworks] = useState([]);
+    const [tappedArtist, setTappedArtist] = useState([]);
+
+    const swipedArtists = [];
     
     useEffect(() => {
 
@@ -57,9 +60,10 @@ function SwipeScreen() {
                 this.swiper = swiper
               }}
               onSwipedLeft={() => console.log('left')}
-              onSwipedRight={(cardIndex) => console.log(artworks[cardIndex])}
-              onSwipedTop={() => Alert.alert('TEMP ALERT', 'OPEN CHAT PAGE')}
+              onSwipedRight={(cardIndex) => swipedArtists.push(artworks[cardIndex])}
+              onSwipedTop={(cardIndex) => {navigation.navigate("MessageScreen", {currArtist: artworks[cardIndex]}); console.log(artworks[cardIndex]) }}
               cards={artworks}
+              cardIndex={0}
               renderCard={(artwork) => (artwork &&
                 <View key={artwork.artwork_id} style={styles.cardActual}>
                   <ImageBackground source={{uri: artwork.img}} style={styles.cardImage}>
@@ -67,7 +71,7 @@ function SwipeScreen() {
                         rounded
                         size="large"
                         source={{uri: artwork.pfp}}
-                        onPress={() => setModalVisible(true)}
+                        onPress={() => {setModalVisible(true); tappedArtist[0] = artworks[0]; console.log(artworks[0])}}
                         containerStyle={styles.avatarContainer}
                       />
                     <Text style={styles.cardTitle} onPress={() => console.log(artwork.pfp)}>{artwork.name}</Text>
@@ -142,26 +146,29 @@ function SwipeScreen() {
              marginBottom={60}
             >
               <View style={{justifyContent: 'center', alignItems: 'center'}}>
-                <Text style={styles.header}>Find an Artist!</Text>
+                <Text style={styles.header} onPress={() => console.log(tappedArtist)}>Find an Artist!</Text>
                 {/* <Button title={"print array"} onPress={() => printArray()} style={{alignItems: 'flex-start', justifyContent: 'flex-start'}}/>
                 <Button title={"print backend"} onPress={() => console.log(card.name)} /> */}
               </View>
             </Swiper>
-            <Modal
-              transparent={ true }
-              visible={ modalVisible }
-              animationType='fade'
-              style={{justifyContent: 'center', alignItems: 'center'}}
-            >
-              <View style={styles.centeredView}>
-                <View style={styles.modalView}>
-                  <ArtistProfileScreen style={{top: -50}}/>
-                  <Pressable onPress={() => setModalVisible(false)}>
-                    <Image source={require('../../assets/exit.png')} style={styles.exit}/>
-                  </Pressable>
+            {tappedArtist.map((currArtist) =>
+              <Modal
+                transparent={ true }
+                visible={ modalVisible }
+                animationType='fade'
+                style={{justifyContent: 'center', alignItems: 'center'}}
+                key={currArtist.artist_id}
+              >
+                <View style={styles.centeredView}>
+                  <View style={styles.modalView}>
+                    <ArtistProfileScreen style={{top: -50}} initialParams={{artist: currArtist}}/>
+                    <Pressable onPress={() => setModalVisible(false)}>
+                      <Image source={require('../../assets/exit.png')} style={styles.exit}/>
+                    </Pressable>
+                  </View>
                 </View>
-              </View>
-            </Modal>
+              </Modal>
+            )}
         </SafeAreaView>
     )
 }

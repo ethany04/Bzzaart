@@ -22,7 +22,6 @@ function BookmarkScreen({ route }) {
 
     const swipedArtists = route.params.swipedArray;
 
-
     const renderItem = ({ item }) => (
         <View style={styles.item} resizeMode="cover">
           <Image source={item.image} style={styles.image} />

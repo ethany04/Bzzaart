@@ -5,7 +5,7 @@ import { Linking, LogBox } from 'react-native';
 
 
 const portfolioURL="txconvergent.org"
-const socialURL="instagram.com/txconvergent"
+const socialURL="instagram.com/caraungg"
 const renderItem = ({ item }) => (
     <View style={styles.item} resizeMode="cover">
       <Image source={item.image} style={styles.image} />
@@ -15,18 +15,15 @@ const renderItem = ({ item }) => (
 // const artist = this.props.route.params.artist
 
 const artistPics = [
-  { key: 'item1', image: require('../../assets/BouquetSunflowers.jpeg')},
-  { key: 'item2', image: require('../../assets/Bordighera.jpg')},
-  { key: 'item3', image: require('../../assets/WaterLilies.jpeg') },
-  { key: 'item4', image: require('../../assets/WaterLilyPond.jpeg') },
-  { key: 'item5', image: require('../../assets/Giverny.jpeg')},
-  { key: 'item6', image: require('../../assets/SanGiorgio.jpeg')},
-
+  { key: 'item1', image: require('../../assets/BlobRug.jpeg')},
+  { key: 'item2', image: require('../../assets/MeltingRug.png')},
+  { key: 'item3', image: require('../../assets/FlowerRug.jpeg') },
+  { key: 'item4', image: require('../../assets/transparent.png') },
 ];
 
 
 
-export default function ArtistProfileScreen() {
+export default function ArtistProfileScreen({ navigation }) {
 
   useEffect(() => {
     LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
@@ -36,28 +33,28 @@ export default function ArtistProfileScreen() {
 
     <SafeAreaView style={styles.safeViewContainer}>
       <View style={styles.container}>
+        <Pressable onPress={() => navigation.navigate("SwipeScreen")}>
+          <Image style={{ width: 20, height: 20, right: 160 }} source={require('../../assets/back.png')} />
+        </Pressable>
 
-        <Image style={styles.profilePic} source={require('../../assets/tesna.png')} />
+        <Image style={styles.profilePic} source={require('../../assets/cara.jpg')} />
 
-        <Text style={styles.name}>Tesna Thomas</Text>
+        <Text style={styles.name}>Cara Ung</Text>
         <Text style={styles.paragraph}>she/her</Text>
         <Text onPress={() => Linking.openURL(portfolioURL)} style={styles.paragraph}>{portfolioURL}</Text>
         <Text onPress={() => Linking.openURL(socialURL)} style={styles.paragraph}>{socialURL}</Text>
-        <Pressable style={styles.button} onPress={() => Alert.alert('go to dm page')}>
-          <Text style={styles.whiteText}>message</Text>
-        </Pressable>
       </View>
 
 
       <View style={styles.artistProfileButtons}>
-            <Text>                 info                                         reviews                 </Text>
+            <Text>                     info                                           reviews                 </Text>
       </View>
 
       <View style={styles.scrollView}>
         <View style={styles.box}>
-          <Text style={styles.headerText}>Meet Tesna!</Text>
-          <Text style={styles.artistInfoText}>✨ Custom landscape paintings & photographic prints</Text>
-          <Text style={styles.artistInfoText}>📍 Based in NYC</Text>
+          <Text style={styles.headerText}>Meet Cara!</Text>
+          <Text style={styles.artistInfoText}>✨ Custom hand-tufted rugs!</Text>
+          <Text style={styles.artistInfoText}>📍 Based in Austin</Text>
         </View>
 
         <FlatList
@@ -79,7 +76,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 8,
     paddingVertical: 5,
-    backgroundColor: '#FFDBA7',
+    backgroundColor: 'rgba(255, 218, 227, 1)',
     width: '100%'
   },
   name: {
@@ -120,14 +117,14 @@ const styles = StyleSheet.create({
   },
   safeViewContainer: {
     flex: 1,
-    backgroundColor: '#FFDBA7',
+    backgroundColor: 'rgba(255, 218, 227, 1)',
     alignItems: 'center',
   },
   scrollView: {
     backgroundColor: 'white',
     flexDirection: 'column',
     padding: 10,
-    height: 288,
+    height: 500,
   },
   artistProfileButtons: {
     flexDirection: 'row',
@@ -139,6 +136,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderTopWidth: 1,
     backgroundColor: '#FAEFE5',
+    width: 390
   },
   headerText: {
     fontSize: 18,
@@ -149,7 +147,8 @@ const styles = StyleSheet.create({
     padding: 2,
   },
   box: {
-    paddingBottom: 5
+    paddingBottom: 5,
+    width: 370,
   },
   item: {
     flex: 1,

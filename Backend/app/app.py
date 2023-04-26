@@ -42,8 +42,8 @@ def getArtistPfp() -> List[Dict]:
         r["pfp"] = pfp[0]["pfp"][0]
         cursor.execute(f'SELECT username FROM artists_data WHERE artist_id = {aid}')
         print(cursor)
-        user=[{"name": username} for (username) in cursor]
-        r["name"] = user[0]["name"][0]
+        user=[{"artist_name": username} for (username) in cursor]
+        r["artist_name"] = user[0]["artist_name"][0]
 
     cursor.close()
     connection.close()

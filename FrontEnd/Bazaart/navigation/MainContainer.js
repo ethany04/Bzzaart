@@ -7,7 +7,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // Screens
 import BookmarkScreen from './screens/BookmarkScreen';
 import ChatScreen from './screens/ChatScreen';
-import ProfileScreen from './screens/ProfileScreen';
 import ArtworkInfo from './screens/ArtworkInfoScreen';
 import SwipeScreen from './screens/SwipeScreen';
 import ArtistProfileScreen from './screens/ArtistProfileScreen';
@@ -19,8 +18,6 @@ const swipeName = "Swipe";
 const bookmarkName = "Bookmark";
 const chatName = "Chat";
 const profileName = "Profile";
-const modalName = "Modal";
-const tempName = "temp";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -31,11 +28,12 @@ const SwipeStack = () => {
     <Stack.Navigator initialRouteName="SwipeScreen" screenOptions={{ headerShown: false }}>
        <Stack.Screen name="SwipeScreen" component={SwipeScreen} />
        <Stack.Screen name="MessageScreen" component={MessageScreen} />
+       <Stack.Screen name="ArtistProfile" component={ArtistProfileScreen} />
     </Stack.Navigator>
   )
 }
 
-function MainContainer() {
+function MainContainer({ route }) {
 
   const bookmarkedArtists = [];
   

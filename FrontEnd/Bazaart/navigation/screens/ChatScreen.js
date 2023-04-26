@@ -44,10 +44,10 @@ const db = [
 //     messageText: 'Hi',
 //   },
   {
-    name: 'Tesna',
-    profilePic: require('../../assets/tesna.png'),
+    name: 'Cara',
+    profilePic: require('../../assets/cara.jpg'),
     messageTime: 'Just now',
-    messageText: 'Hi! I saw your profile and...',
+    messageText: 'I saw your profile and was ...',
   }
 ];
 
@@ -94,7 +94,7 @@ const styles = {
     invidualContainer: {
         backgroundColor: 'white',
         justifyContent: 'space-between',
-        flex: 1
+        flex: 1,
     }
 
 }

@@ -39,14 +39,15 @@ const MessageScreen = ({ route, navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      {artist.map((currArtist))}
       <View style={styles.header}>
         <Pressable onPress={() => navigation.navigate("SwipeScreen")}>
             <Image source={require('../../assets/back.png')} style={{ height: 20, width: 20, right: 85, bottom: 20 }} />
         </Pressable>
-        <Text style={styles.headerText}>{artist.name}</Text>
-        <Image source={{ uri: artist.pfp }} style={styles.logo} />
+        <Text style={styles.headerText}>{currArtist.name}</Text>
+        <Image source={{uri: currArtist.pfp}} style={styles.logo} />
       </View>
-      <KeyboardAvoidingView style={styles.container} behavior="padding">
+      <KeyboardAvoidingView style={styles.container2} behavior="padding">
         <FlatList
           data={Object.values(messages)}
           renderItem={({ item }) => (
@@ -78,10 +79,15 @@ const MessageScreen = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'rgba(255, 218, 227, 1)',
+  },
+  container2: {
+    flex: 1,
+    backgroundColor: 'white'
   },
   header: {
     height: 70,
-    backgroundColor: '#f2f2f2',
+    backgroundColor: 'rgba(255, 218, 227, 1)',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
@@ -103,7 +109,7 @@ const styles = StyleSheet.create({
   },
   messageBubbleContainer: {
     alignSelf: 'flex-end', // align the bubble to the right side of the screen
-    backgroundColor: '#ffcccc',
+    backgroundColor: 'rgba(255, 168, 77, 0.47)',
     borderRadius: 10,
     marginVertical: 5,
     paddingHorizontal: 10,

@@ -3,33 +3,30 @@ import { Image, Text, View, StyleSheet, ScrollView, TouchableOpacity, FlatList, 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Avatar } from 'react-native-elements';
 
-function BookmarkScreen() {
+function BookmarkScreen({ route }) {
 
     const [artists, updateArtists] = useState([
+        {
+            name: 'Cara Ung',
+            pfp: require("../../assets/cara.jpg"),
+            genre: 'Rugs',
+            bookmark: true
+        },
         {
             name: 'Tesna Thomas',
             pfp: require("../../assets/tesna.png"),
             genre: 'Impressionism',
-            img: require("../../assets/NightLife.jpeg"),
             bookmark: true
-        }
+        },
     ])
+
+    const swipedArtists = route.params.swipedArray;
 
     const renderItem = ({ item }) => (
         <View style={styles.item} resizeMode="cover">
           <Image source={item.image} style={styles.image} />
         </View>
     );
-
-    const artistPics = [
-        { key: 'item1', image: require('../../assets/BouquetSunflowers.jpeg')},
-        { key: 'item2', image: require('../../assets/Bordighera.jpg')},
-        { key: 'item3', image: require('../../assets/WaterLilies.jpeg') },
-        { key: 'item4', image: require('../../assets/WaterLilyPond.jpeg') },
-        { key: 'item5', image: require('../../assets/Giverny.jpeg')},
-        { key: 'item6', image: require('../../assets/SanGiorgio.jpeg')},
-      
-      ];
 
     return (  
         <View style={styles.container} contentContainerStyle={{justifyContent: 'center', alignItems: 'center'}}>
@@ -40,17 +37,20 @@ function BookmarkScreen() {
                 <ScrollView>
                         {artists.map((artist) => 
                             <View key={artist.name} style={styles.artist_content}>
+                                <View style={{ width: 500, height: 10 }} />
                                 <Avatar
                                     rounded
                                     size="large"
-                                    source={require('../../assets/tesna.png')}
+                                    source={artist.pfp}
                                 />
                                 <Text style={styles.artist_name}>{artist.name}</Text>
                                 <TouchableOpacity>{artist.bookmark && <Ionicons name={'bookmark'} size={40} color={'#ff0f69'} borderColor={'#ff0f69'}/>}</TouchableOpacity>
+                                <View style={{ width: 500 }} />
                                 <View style={styles.genre}>
                                     <Text>{artist.genre}</Text>
                                 </View>
-                                <View style={{width: 360, height: 1, backgroundColor: 'black'}} />
+                                <View style={{ width: 500, height: 10 }}/>
+                                <View style={{  width: 350, height: 1, backgroundColor: 'black' }} />
                             </View> 
                         )}        
                 </ScrollView>
@@ -70,7 +70,7 @@ const styles = StyleSheet.create ({
         top: 55,
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: 10
+        marginBottom: 10,
     },
     divider: {
         paddingTop: 10,
@@ -91,7 +91,7 @@ const styles = StyleSheet.create ({
     artist_content: {
         alignItems: 'center',
         justifyContent: 'center',
-        top: 60,
+        top: 50,
         flexWrap: 'wrap',
         flexDirection: 'row',
     },

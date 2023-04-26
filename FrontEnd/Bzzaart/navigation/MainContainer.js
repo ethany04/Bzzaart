@@ -7,25 +7,33 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // Screens
 import BookmarkScreen from './screens/BookmarkScreen';
 import ChatScreen from './screens/ChatScreen';
-import ProfileScreen from './screens/ProfileScreen';
 import ArtworkInfo from './screens/ArtworkInfoScreen';
-import Swipe2 from './screens/Swipe2';
 import SwipeScreen from './screens/SwipeScreen';
 import ArtistProfileScreen from './screens/ArtistProfileScreen';
 import CustomerProfileScreen from './screens/CustomerProfileScreen';
+import MessageScreen from './screens/MessageScreen';
 
 //Screen names
 const swipeName = "Swipe";
 const bookmarkName = "Bookmark";
 const chatName = "Chat";
 const profileName = "Profile";
-const modalName = "Modal";
-const tempName = "temp";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
-function MainContainer() {
+const SwipeStack = () => {
+   
+  return (
+    <Stack.Navigator initialRouteName="SwipeScreen" screenOptions={{ headerShown: false }}>
+       <Stack.Screen name="SwipeScreen" component={SwipeScreen} />
+       <Stack.Screen name="MessageScreen" component={MessageScreen} />
+       <Stack.Screen name="ArtistProfile" component={ArtistProfileScreen} />
+    </Stack.Navigator>
+  )
+}
+
+function MainContainer({ route }) {
 
   const bookmarkedArtists = [];
   
@@ -63,8 +71,8 @@ function MainContainer() {
         >
 
         <Tab.Group tabBar={props => <BottomTabBar {...props} state={{...props.state, routes: props.state.routes.slice(0,4)}}></BottomTabBar>}>
-          <Tab.Screen name={swipeName} component={SwipeScreen} parentToChild={bookmarkedArtists} />
-          <Tab.Screen name={bookmarkName} component={BookmarkScreen} initialParams={bookmarkedArtists}/>
+          <Tab.Screen name={swipeName} component={SwipeStack} initialParams={ {bookmarkedArray: bookmarkedArtists} } />
+          <Tab.Screen name={bookmarkName} component={BookmarkScreen} initialParams={ {bookmarkedArray: bookmarkedArtists} }/>
           <Tab.Screen name={chatName} component={ChatScreen} />
           <Tab.Screen name={profileName} component={CustomerProfileScreen} />
         </Tab.Group>

@@ -1,6 +1,6 @@
 artist_id,username,pronouns,city,us_state,genre,artwork_id_list,customer_id_list,available_for_custom,profile_pic_url
-343,Daquinious Demarcus,he/him/his,New York,New York,Oil Painting,32432,374,N,asmita.png
-213,Hanni Pham,she/her/hers,Chicago,Illinois,Portrait,89432,121,Y,priya.png
-612,Sam Oh,he/him/his,Los Angeles,California,Digital Art,78567,521,N,neer.png
+343,Asmite Karmakar,he/him/his,New York,New York,Oil Painting,32432,374,N,asmita.png
+213,Priya Barve,she/her/hers,Chicago,Illinois,Portrait,89432,121,Y,priya.png
+612,Neer Jain,he/him/his,Los Angeles,California,Digital Art,78567,521,N,neer.png
 529,Tesna Thomas,she/her,Austin,Texas,Impressionism,"52952,52953,52954,52955",521,Y,tesna.png
 888,Cara Ung,she/her,Austin,Texas,Rugs,"34567,34568,34569",521,Y,cara.jpg

@@ -5,21 +5,6 @@ import { Avatar } from 'react-native-elements';
 
 function BookmarkScreen({ route }) {
 
-    const [artists, updateArtists] = useState([
-        {
-            name: 'Cara Ung',
-            pfp: require("../../assets/cara.jpg"),
-            genre: 'Rugs',
-            bookmark: true
-        },
-        {
-            name: 'Tesna Thomas',
-            pfp: require("../../assets/tesna.png"),
-            genre: 'Impressionism',
-            bookmark: true
-        },
-    ])
-
     const swipedArtists = route.params.swipedArray;
 
     const renderItem = ({ item }) => (
@@ -35,7 +20,7 @@ function BookmarkScreen({ route }) {
                         <Text style={{ fontWeight: 'bold', fontSize: 40 }}>Bookmarked Artists</Text>
                     </View>
                 <ScrollView>
-                        {artists.map((artist) => 
+                        {swipedArtists.map((artist) => 
                             <View key={artist.name} style={styles.artist_content}>
                                 <View style={{ width: 500, height: 10 }} />
                                 <Avatar

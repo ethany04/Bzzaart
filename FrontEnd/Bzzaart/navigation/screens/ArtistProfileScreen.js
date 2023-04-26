@@ -4,24 +4,16 @@ import Constants from 'expo-constants';
 import { Linking, LogBox } from 'react-native';
 
 
-const portfolioURL="txconvergent.org"
-const socialURL="instagram.com/caraungg"
 const renderItem = ({ item }) => (
     <View style={styles.item} resizeMode="cover">
       <Image source={item.image} style={styles.image} />
     </View>
 );
 
-// const artist = this.props.route.params.artist
-
-const artistPics = [
-  { key: 'item1', image: require('../../assets/BlobRug.jpeg')},
-  { key: 'item2', image: require('../../assets/MeltingRug.png')},
-  { key: 'item3', image: require('../../assets/FlowerRug.jpeg') },
-  { key: 'item4', image: require('../../assets/transparent.png') },
-];
-
-
+const artist = this.props.route.params.artist
+const portfolioURL="txconvergent.org"
+const socialURL="instagram.com/caraungg"
+const artistPics = artist.artworks;
 
 export default function ArtistProfileScreen({ navigation }) {
 
@@ -30,41 +22,44 @@ export default function ArtistProfileScreen({ navigation }) {
   }, [])
 
   return (
-
     <SafeAreaView style={styles.safeViewContainer}>
-      <View style={styles.container}>
-        <Pressable onPress={() => navigation.navigate("SwipeScreen")}>
-          <Image style={{ width: 20, height: 20, right: 160 }} source={require('../../assets/back.png')} />
-        </Pressable>
+      {artist.map((currArtist) => 
+        <View>
+          <View style={styles.container}>
+            <Pressable onPress={() => navigation.navigate("SwipeScreen")}>
+              <Image style={{ width: 20, height: 20, right: 160 }} source={require('../../assets/back.png')} />
+            </Pressable>
 
-        <Image style={styles.profilePic} source={require('../../assets/cara.jpg')} />
+            <Image style={styles.profilePic} source={{ uri: currArtist.pfp }} />
 
-        <Text style={styles.name}>Cara Ung</Text>
-        <Text style={styles.paragraph}>she/her</Text>
-        <Text onPress={() => Linking.openURL(portfolioURL)} style={styles.paragraph}>{portfolioURL}</Text>
-        <Text onPress={() => Linking.openURL(socialURL)} style={styles.paragraph}>{socialURL}</Text>
-      </View>
+            <Text style={styles.name}>{currArtist.name}</Text>
+            <Text style={styles.paragraph}>{currArtist.pronouns}</Text>
+            <Text onPress={() => Linking.openURL(portfolioURL)} style={styles.paragraph}>{portfolioURL}</Text>
+            <Text onPress={() => Linking.openURL(socialURL)} style={styles.paragraph}>{socialURL}</Text>
+          </View>
 
 
-      <View style={styles.artistProfileButtons}>
-            <Text>                     info                                           reviews                 </Text>
-      </View>
+          <View style={styles.artistProfileButtons}>
+                <Text>                     info                                           reviews                 </Text>
+          </View>
 
-      <View style={styles.scrollView}>
-        <View style={styles.box}>
-          <Text style={styles.headerText}>Meet Cara!</Text>
-          <Text style={styles.artistInfoText}>✨ Custom hand-tufted rugs!</Text>
-          <Text style={styles.artistInfoText}>📍 Based in Austin</Text>
+          <View style={styles.scrollView}>
+            <View style={styles.box}>
+              <Text style={styles.headerText}>Meet {currArtist.name}</Text>
+              <Text style={styles.artistInfoText}>✨ {currArtist.description}</Text>
+              <Text style={styles.artistInfoText}>📍 Based in {currArtist.city}</Text>
+            </View>
+
+            <FlatList
+                data={artistPics}
+                key={1}
+                numColumns={2}
+                renderItem={renderItem}
+                keyExtractor={(item) => item.key}
+            />
+          </View>
         </View>
-
-        <FlatList
-            data={artistPics}
-            key={1}
-            numColumns={2}
-            renderItem={renderItem}
-            keyExtractor={(item) => item.key}
-        />
-      </View>
+      )}
 </SafeAreaView>      
 
   );

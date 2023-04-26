@@ -15,7 +15,8 @@ function SwipeScreen({ navigation }) {
       console.log(db)
     }
 
-    const [artworks, setArtworks] = useState([]);    
+    const [artworks, setArtworks] = useState([]);
+    const [getMore, setGetMore] = useState(false);
     
     useEffect(() => {
 
@@ -47,7 +48,7 @@ function SwipeScreen({ navigation }) {
         }
         setArtworks(postArr);
         })
-    }, []);
+    }, [getMore]);
 
     return (
         <SafeAreaView style={styles.container}>
@@ -58,6 +59,7 @@ function SwipeScreen({ navigation }) {
               onSwipedLeft={() => console.log('left')}
               onSwipedRight={(cardIndex) => this.props.route.params.bookmarkedArray.push(artworks[cardIndex])}
               onSwipedTop={(cardIndex) => {navigation.navigate("MessageScreen", {currArtist: artworks[cardIndex]}); console.log(artworks[cardIndex]) }}
+              onSwipedAll={() => setGetMore(!getMore)}
               cards={artworks}
               cardIndex={0}
               renderCard={(artwork) => (artwork &&
@@ -67,7 +69,7 @@ function SwipeScreen({ navigation }) {
                         rounded
                         size="large"
                         source={{uri: artwork.pfp}}
-                        onPress={() => navigation.navigate("ArtistProfile")}
+                        onPress={() => {navigation.navigate("ArtistProfile")}}
                         containerStyle={styles.avatarContainer}
                       />
                     <Text style={styles.cardTitle} >{artwork.name}</Text>

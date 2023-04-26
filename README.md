@@ -1,6 +1,3 @@
-# sp23-compensation
-spring 23 adm build team - compensation
+# sp23-bt-Digital Arts and Media-compensation
 
-Arts & Media
-Joanna Cui, Ethan Yu, Cara Ung, Karner David, Ashrita Gudavalli, Aulona Ljena,
-Jason Yao, Savitha Shan
+Joanna Cui, Karner David, Ashrita Gudavalli, Aulona Ljena, Savitha Shan, Cara Ung, Jason Yao, and Ethan Yu

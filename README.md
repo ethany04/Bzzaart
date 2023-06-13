@@ -1,10 +1,10 @@
 # sp23-bt-Digital Arts and Media-compensation
 
-Joanna Cui, Karner David, Ashrita Gudavalli, Aulona Ljena, Savitha Shan, Cara Ung, Jason Yao, and Ethan Yu
+Bzzaart is a digital marketplace for buyers to discover and purchase works from small, commission-based artists
 
-Bzzaart!
+Our team:
+Technology - Joanna Cui, Karner David, Ethan Yu
+Product - Aulona Ljena, Savitha Shan, Jason Yao
+Design - Ashrita Gudavalli, Cara Ung
+
 Built using React Native/Expo frontend, Docker/Flask and MySQL backend
-
-
-Allows artists to "create a buzz!" with our tinder-like swipe page, giving artists
-equal exposure to prospective consumers.

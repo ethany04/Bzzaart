@@ -1,4 +1,4 @@
-# sp23-bt-Digital Arts and Media-compensation
+# Bzzaart!
 
 Bzzaart is a digital marketplace for buyers to discover and purchase works from small, commission-based artists
 

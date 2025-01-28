@@ -8,3 +8,6 @@ Product - Aulona Ljena, Savitha Shan, Jason Yao
 Design - Ashrita Gudavalli, Cara Ung
 
 Built using React Native/Expo frontend, Docker/Flask and MySQL backend
+
+Figma File:
+https://www.figma.com/design/Y3YyEqchbmHE2m40FmV7Yg/DAM-art-compensation?node-id=0-1&t=QwUgAJRUPGgfMfsI-1
